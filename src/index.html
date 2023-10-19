@@ -62,7 +62,7 @@
           >
         </div>
       </section>
-      <section class="max-w-maxW mx-auto" id="skills">
+      <section class="max-w-maxW mx-auto mb-32" id="skills">
         <h2 class="text-gray-400 text-xl tracking-wider font-bold mb-4">
           MY SKILLS
         </h2>
@@ -135,29 +135,41 @@
         </div>
       </section>
       <section class="max-w-maxW mx-auto" id="projects">
-        <h2>Recent Projects</h2>
-        <p>
+        <h2 class="text-gray-400 text-xl tracking-wider font-bold mb-4 uppercase">Recent Projects</h2>
+        <p class="text-2xl font-medium tracking-tight mb-10">
           I started my road in 2006-2007 and had first shot how html works and
           css but unfortunatly I had to stop it. After so many years I am back
           stronger and full of positive attitude and willingness to learn new
           codes!
         </p>
-        <article>
-          <h3>My editor</h3>
-          <p><img src="./images/star.svg" alt="" class="w-4 h-4" />10</p>
-          <p>
+        <div class="grid">
+        <article class="rounded-rad overflow-clip bg-gradient-to-br from-white/10 to-white/5">
+            <div class="border-b border-bg shadow-innerLight rounded-t-rad flex gap-1.5 p-4 h-11 bg-gradient-to-br from-white/10 to-white/5 ">
+                <span class="w-3 h-3 block rounded-full bg-bg opacity-50"></span>
+                <span class="w-3 h-3 block rounded-full bg-bg opacity-50"></span>
+                <span class="w-3 h-3 block rounded-full bg-bg opacity-50"></span>
+            </div>
+            <div class="p-5">
+                <header class="mb-4 flex gap-4 items-center">
+          <h3 class="text-2xl leading-none font-bold">My editor</h3>
+          <p class=" bg-gray-400/10 py-1 px-2 flex gap-0.5 items-center text-gray-400 font-medium leading-none rounded"><img src="./images/star.svg" alt="" class="w-4 h-4" />10</p>
+        </header>
+          <p class="text-gray-400 text-xl mb-4">
             Phasellus dolor. In dui magna, posuere eget, vestibulum et, tempor
             auctor, justo fringilla mauris sit amet nibh. Suspendisse pulvinar,
             augue ac venenatis condimentum, sem libero volutpat...
           </p>
-          <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
+          <ul class="flex gap-2 mb-10">
+            <li class="bg-gray-400/10 py-1 px-2 rounded text-sm font-bold">HTML</li>
+            <li class="bg-gray-400/10 py-1 px-2 rounded text-sm font-bold">CSS</li>
+            <li class="bg-gray-400/10 py-1 px-2 rounded text-sm font-bold">JavaScript</li>
           </ul>
-          <a href="#">View demo</a>
-          <a href="#"> Source code</a>
+          <div class="flex flex-col gap-4 items-start">
+          <a class="bg-bg text-accent border-lightGray border-2 flex gap-3 font-bold  py-4 px-5 items-center rounded-[0.625rem]" href="#"><img class="w-6 h-6" src="images/demo.svg" alt=""> View demo</a>
+          <a class="bg-bg text-accent border-lightGray border-2 flex gap-3 font-bold  py-4 px-5 items-center rounded-[0.625rem]" href="#"><img src="images/code.svg" alt="">Source code</a>
+          </div>
         </article>
+    </div>
       </section>
       <section class="max-w-maxW mx-auto">
         <h2>After hours</h2>
