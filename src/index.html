@@ -7,163 +7,211 @@
     <link href="./index.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <main>
-        <header >
-            <img class="w-10 h-10" src="./images/logo.svg" alt="">  
-            <p>Norbert Skwierczynski</p> 
-            <p>Frontend Developer Junior</p>  
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a download href="#">Resume</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav> 
-          </header>
-          <section id="#about">
-            <h1>My name is Norbert, and I am a self-taught Junior Frontend Developer</h1>
-            <p>I invite you to explore my skill 
-                set and take a glance at my portfolio 
-                showcasing various projects. Currently, 
-                I am actively seeking new challenges and 
-                opportunities. If you have an exciting
-                 project in mind, I would love to hear 
-                 from you. Feel free to get in touch!😊</p>
-            <a href="#contact">Get in touch</a>
-            <a href="#skills">Get to know me</a>
-          </section>
-          <section id="'skills">
-            <h2>MY SKILLS</h2>
-            <p>I've acquired valuable skills 
-                during my journey and I'm enthusiastic 
-                about showcasing them to you. Explore 
-                my abilities below and see what I can do!</p>
-            <article>
-                <img src="./images/tri.svg" alt="" class="w-44 h-44">
-                <h3>Working knowladge</h3>
-                <ul>
-                    <li>— Semantic HTML5</li>
-                    <li> — Flexbox</li>
-                    <li> — Markdown</li>
-                    <li> — JS: Local storage</li>
-                    <li> — Figma</li>
-                    <li> — CSS grid</li>
-                    <li> — Forms</li>
-                    <li> — JS: DOM manipulations</li>
-                    <li> — SASS</li> 
-                    <li> — Tailwindcss</li>
-                </ul>
-            </article> 
-            <article>
-                <img src="./images/cir.svg" alt="" class="w-44 h-44">
-                <h3>Know something about</h3>
-                <ul>
-                    <li>— JavaScript ES6 + features </li>
-                    <li>— CSS animations</li>
-                    <li>— Working with API</li>
-                    <li>— NPM Scripts</li>
-                    <li>— PWA</li>
-                    <li>— Git</li>
-                    <li>— Accessibility</li>
-                    <li>— React</li>
-                   
-                </ul>
-            </article>
-            <article>
-                <img src="./images/hex.svg" alt="" class="w-44 h-44">
-                <h3>Want to learn</h3>
-                <ul>
-                   
-                    <li>— Node</li>
-                    <li>— SSR</li>
-                    <li>— TypeScript</li>
-                    <li>— Gatsby</li>
-                    <li>— WebSockets</li>
-                    <li>— Electron</li>                    
-                </ul>
-            </article>
+  <body class="font-dmsans bg-bg text-white">
+    <main class="px-4">
+      <header class="max-w-maxW mx-auto py-6">
+        <div class="flex gap-4 items-center">
+          <img class="w-10 h-10" src="./images/logo.svg" alt="" />
+          <div>
+            <p class="text-xl font-bold text-accent">Norbert Skwierczynski</p>
+            <p class="text-white opacity-40 uppercase text-xs tracking-wider">
+              Frontend Developer Junior
+            </p>
+          </div>
+        </div>
+        <nav class="hidden">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a download href="#">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <section class="max-w-maxW mx-auto mb-20" id="#about">
+        <img class="w-full mb-5" src="./images/Me.png" alt="Thats me" />
+        <h1 class="text-2xl font-bold mb-4">
+          My name is Norbert, and I am a self-taught
+          <span class="text-accent">Junior Frontend Developer</span>
+        </h1>
+        <p class="text-gray-400 mb-8">
+          I invite you to explore my
+          <a href="#skills" class="text-white">skill </a> set and take a glance
+          at my portfolio showcasing various
+          <a href="#projects" class="text-white">projects</a>. Currently, I am
+          actively seeking new challenges and opportunities. If you have an
+          exciting project in mind, I would love to hear from you. Feel free to
+          <a href="#contact" class="text-white">get in touch!</a> 😊
+        </p>
+        <div class="flex flex-col items-start gap-4">
+          <a
+            class="bg-accent text-bg flex gap-3 font-bold text-xl py-2 px-4 items-center rounded-[0.625rem]"
+            href="#contact"
+            ><img src="./images/cloud.svg" alt="" />Get in touch</a
+          >
+          <a
+            class="bg-bg text-accent border-lightGray border-2 flex gap-3 font-bold text-xl py-2 px-4 items-center rounded-[0.625rem]"
+            href="#skills"
+            ><img src="./images/user.svg" alt="" />Get to know me</a
+          >
+        </div>
+        
+      </section>
+      <section class="max-w-maxW mx-auto" id="skills">
+        <h2>MY SKILLS</h2>
+        <p>
+          I've acquired valuable skills during my journey and I'm enthusiastic
+          about showcasing them to you. Explore my abilities below and see what
+          I can do!
+        </p>
+        <article>
+          <img src="./images/tri.svg" alt="" class="w-44 h-44" />
+          <h3>Working knowladge</h3>
+          <ul>
+            <li>— Semantic HTML5</li>
+            <li>— Flexbox</li>
+            <li>— Markdown</li>
+            <li>— JS: Local storage</li>
+            <li>— Figma</li>
+            <li>— CSS grid</li>
+            <li>— Forms</li>
+            <li>— JS: DOM manipulations</li>
+            <li>— SASS</li>
+            <li>— Tailwindcss</li>
+          </ul>
+        </article>
+        <article>
+          <img src="./images/cir.svg" alt="" class="w-44 h-44" />
+          <h3>Know something about</h3>
+          <ul>
+            <li>— JavaScript ES6 + features</li>
+            <li>— CSS animations</li>
+            <li>— Working with API</li>
+            <li>— NPM Scripts</li>
+            <li>— PWA</li>
+            <li>— Git</li>
+            <li>— Accessibility</li>
+            <li>— React</li>
+          </ul>
+        </article>
+        <article>
+          <img src="./images/hex.svg" alt="" class="w-44 h-44" />
+          <h3>Want to learn</h3>
+          <ul>
+            <li>— Node</li>
+            <li>— SSR</li>
+            <li>— TypeScript</li>
+            <li>— Gatsby</li>
+            <li>— WebSockets</li>
+            <li>— Electron</li>
+          </ul>
+        </article>
+      </section>
+      <section class="max-w-maxW mx-auto" id="projects">
+        <h2>Recent Projects</h2>
+        <p>
+          I started my road in 2006-2007 and had first shot how html works and
+          css but unfortunatly I had to stop it. After so many years I am back
+          stronger and full of positive attitude and willingness to learn new
+          codes!
+        </p>
+        <article>
+          <h3>My editor</h3>
+          <p><img src="./images/star.svg" alt="" class="w-4 h-4" />10</p>
+          <p>
+            Phasellus dolor. In dui magna, posuere eget, vestibulum et, tempor
+            auctor, justo fringilla mauris sit amet nibh. Suspendisse pulvinar,
+            augue ac venenatis condimentum, sem libero volutpat...
+          </p>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+          <a href="#">View demo</a>
+          <a href="#"> Source code</a>
+        </article>
+      </section>
+      <section class="max-w-maxW mx-auto">
+        <h2>After hours</h2>
+        <p>
+          Beyond my standard work hours, I immerse myself in a variety of
+          activities and passions. 's a glimpse into how I spend my free time.
+        </p>
+        <article>
+          <img src="./images/Music.png" alt="" class="w-56 h-96" />
+          <h3>Music</h3>
+          <p>
+            Outside of my regular working hours, I immerse myself in the
+            pulsating rhythms and innovative sounds of electronic music
+          </p>
+        </article>
+        <article>
+          <img src="./images/movie.jpg" alt="" class="w-56 h-96" />
+          <h3>Movie</h3>
+          <p>
+            Outside of my regular working hours, I immerse myself in the
+            pulsating rhythms and innovative sounds of electronic music
+          </p>
+        </article>
+        <article>
+          <img src="./images/Car1.png" alt="" class="w-56 h-96" />
+          <h3>Cars</h3>
+          <p>
+            Outside of my regular working hours, I immerse myself in the
+            pulsating rhythms and innovative sounds of electronic music
+          </p>
+        </article>
+        <article>
+          <img src="./images/travel.jpg" alt="" class="w-56 h-96" />
+          <h3>Travel with Family</h3>
+          <p>
+            Outside of my regular working hours, I immerse myself in the
+            pulsating rhythms and innovative sounds of electronic music
+          </p>
+        </article>
+      </section>
+      <section class="max-w-maxW mx-auto" id="contact">
+        <h2>Let's work together</h2>
+        <p>
+          I'm open for new opportunities. <br />If you have one for me we should
+          talk!
+        </p>
+        <a href="mailto:norbert.fe.dev@gmail.com">norbert.fe.dev@gmail.com</a>
 
-          </section>
-          <section id="#projects">
-            <h2>Recent Projects</h2>
-            <p>I started my road in 2006-2007 and 
-                had first shot how html works and 
-                css but unfortunatly I had to stop 
-                it. After so many years I am back 
-                stronger and full of positive 
-                attitude and willingness to learn new codes!</p>
-                <article>
-                    <h3>My editor</h3>
-                    <p><img src="./images/star.svg" alt="" class="w-4 h-4">10</p>
-                <p>Phasellus dolor. In dui magna, 
-                    posuere eget, vestibulum et, 
-                    tempor auctor, justo fringilla 
-                    mauris sit amet nibh. Suspendisse 
-                    pulvinar, augue ac venenatis condimentum, 
-                    sem libero volutpat...</p>
-                    <ul>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                       
-                    </ul>
-                    <a href="#">View demo</a>
-                    <a href="#"> Source code</a>
-            </article>
-          </section>
-          <section>
-            <h2>After hours</h2>
-            <p>Beyond my standard work hours, 
-                I immerse myself in a variety 
-                of activities and passions. 
-                's a glimpse into how I spend my free time.</p>
-                <article>
-                    <img src="./images/Music.png" alt="" class="w-56 h-96">
-                    <h3>Music</h3>
-                    <p>Outside of my regular working hours, I immerse myself in the pulsating rhythms and innovative sounds of electronic music</p>
-                </article>
-                <article>
-                    <img src="./images/movie.jpg" alt="" class="w-56 h-96">
-                    <h3>Movie</h3>
-                    <p>Outside of my regular working hours, I immerse myself in the pulsating rhythms and innovative sounds of electronic music</p>
-                </article>
-                <article>
-                    <img src="./images/Car1.png" alt="" class="w-56 h-96">
-                    <h3>Cars</h3>
-                    <p>Outside of my regular working hours, I immerse myself in the pulsating rhythms and innovative sounds of electronic music</p>
-                </article>
-                <article>
-                    <img src="./images/travel.jpg" alt="" class="w-56 h-96">
-                    <h3>Travel with Family</h3>
-                    <p>Outside of my regular working hours, I immerse myself in the pulsating rhythms and innovative sounds of electronic music</p>
-                </article>
-        </section>
-        <section id="contact">
-            <h2>Let's work together</h2>
-            <p>I'm open for new opportunities. <br>If you have one for me we should talk!</p>
-            <a href="mailto:norbert.fe.dev@gmail.com">norbert.fe.dev@gmail.com</a>
+        <p>or find me on</p>
+        <ul>
+          <li>
+            <a
+              rel="noopener"
+              href="https://www.linkedin.com/in/norbert-skwierczynski/"
+              target="_blank"
+              ><img class="w-6 h-6" src="./images/linked.svg" alt="Linked"
+            /></a>
+          </li>
+          <li>
+            <a
+              rel="noopener"
+              href="https://www.facebook.com/norbert.skwierczynski"
+              target="_blank"
+              ><img class="w-6 h-6" src="./images/FC.svg" alt="FaceBook"
+            /></a>
+          </li>
+          <li>
+            <a rel="noopener" href="https://github.com/NoriFe" target="_blank"
+              ><img class="w-6 h-6" src="./images/git.svg" alt="github"
+            /></a>
+          </li>
+        </ul>
+      </section>
+    </main>
 
-            <p>or find me on</p>
-            <ul>
-                <li>
-                    <a rel="noopener" href="https://www.linkedin.com/in/norbert-skwierczynski/" target="_blank"><img class="w-6 h-6" src="./images/linked.svg" alt="Linked"></a>
-                </li>
-                <li>
-                    <a rel="noopener" href="https://www.facebook.com/norbert.skwierczynski" target="_blank"><img class="w-6 h-6" src="./images/FC.svg" alt="FaceBook"></a>
-                </li>
-                <li>
-                    <a rel="noopener" href="https://github.com/NoriFe" target="_blank"><img class="w-6 h-6" src="./images/git.svg" alt=github></a>
-                </li>               
-            </ul>
-
-        </section>
-    </main>  
-  
     <script type="module" src="./main.js"></script>
   </body>
 </html>
