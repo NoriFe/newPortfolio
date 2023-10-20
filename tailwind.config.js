@@ -17,7 +17,8 @@ module.exports = {
         'maxW' : '82rem'
       },
       borderRadius: {
-        'rad' : '0.625rem'
+        'rad' : '0.625rem',
+        'rad-xl' : '1.25rem'
       },
       boxShadow: {
         'innerLight' : 'inset 0 2px 0 0 rgba(255,255,255,0.15)',
