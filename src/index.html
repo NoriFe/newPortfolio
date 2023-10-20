@@ -14,7 +14,7 @@
   </head>
   <body class="font-dmsans bg-bg text-white">
     <main class="px-4">
-      <header class="max-w-maxW mx-auto py-6">
+      <header class="flex justify-between gap-4 max-w-maxW mx-auto py-6">
         <div class="flex gap-4 items-center">
           <img class="w-10 h-10" src="./images/logo.svg" alt="" />
           <div>
@@ -24,17 +24,17 @@
             </p>
           </div>
         </div>
-        <nav class="hidden">
-          <ul>
+        <nav class="hidden  md:block">
+          <ul class="flex gap-10 font-bold items-center">
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a download href="#">Resume</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a class="flex gap-2 items-center" download href="#"><img src="images/download.icon.svg" alt="">Resume</a></li>
+            <li><a class="inline-block bg-accent text-bg rounded-xl py-3.5 px-8" href="#contact">Contact</a></li>
           </ul>
         </nav>
       </header>
-      <section class="max-w-maxW mx-auto mb-20" id="#about">
+      <section class="max-w-maxW mx-auto mb-20" id="about">
         <img class="w-full mb-5" src="images/meFrame.png" alt="Thats me" />
         <h1 class="text-2xl font-bold mb-4">
           My name is Norbert, and I am a self-taught
