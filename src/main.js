@@ -1,6 +1,8 @@
 import star from './images/star.svg';
 import demo from './images/demo.svg';
-import source from './images/code.svg'
+import source from './images/code.svg';
+
+console.log('Welcome to my Portfolio, hope you will enjoy it!😊')
 
 const projectContainer = document.querySelector('.project--js');
 
