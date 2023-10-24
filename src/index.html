@@ -20,8 +20,9 @@
     <meta property="og:url" content="https://norbertskwierczynski-portfolio.netlify.app/" />
   </head>
   <body class="font-dmsans bg-bg text-white">
-    <main class="px-4">
-      <header class="flex justify-between gap-4 max-w-maxW mx-auto py-6">
+    <main>
+      <header class=" py-3 md:py-6 sticky top-0 bg-bg/40 backdrop-blur-lg px-4">
+        <div class="flex justify-between gap-4 max-w-maxW mx-auto">
         <div class="flex gap-4 items-center">
           <img class="w-10 h-10 animate-slowSpin" src="./images/logo.svg" alt="" />
           <div>
@@ -36,11 +37,13 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a class="flex gap-2 items-center" download href="#"><img class="animate-bounce" src="images/download.icon.svg" alt="">Resume</a></li>
+            <li><a class="flex gap-2 items-center" download href="#"><img class="animate-bounce" width="24" height="24" src="images/download.icon.svg" alt="">Resume</a></li>
             <li><a class="inline-block bg-accent text-bg rounded-xl py-3.5 px-8" href="#contact">Contact</a></li>
           </ul>
         </nav>
+        </div>
       </header>
+      <div class="px-4">
       <section class="max-w-maxW mx-auto md:mb-32 md:pt-32 mb-20 md:flex md:justify-between items-center md:gap-12" id="about">
 
           <picture class="md:order-2">
@@ -71,7 +74,7 @@
             ><img width="24" height="24" src="./images/cloud.svg" alt="" />Get in touch</a
           >
           <a
-            class="bg-bg text-accent hover:text-accent-600 transition-all duration-500  hover:ring-accent-600 ring-lightGray ring-2 flex gap-3 font-bold text-xl py-2 px-4 md:py-3.5 md:px-6 items-center rounded-rad md:rounded-rad-xl"
+            class="bg-bg text-accent hover:text-accent-600 transition-all duration-500  hover:ring-accent-600 ring-gray-800 ring-2 flex gap-3 font-bold text-xl py-2 px-4 md:py-3.5 md:px-6 items-center rounded-rad md:rounded-rad-xl"
             href="#skills"
             ><img width="24" height="24" src="./images/user.svg" alt="" />Get to know me</a
           >
@@ -89,7 +92,7 @@
         </p>
         <div class="grid gap-4 md:grid-cols-3">
         <article
-          class="p-5 md:p-6 lg:p-10   rounded-rad bg-gradient-to-br from-white/10 to-white/5 shadow-innerLight ring ring-bg"
+          class="p-5 md:p-6 lg:p-10   rounded-rad bg-gradient-to-br from-white/10 to-white/5 shadow-inner-light ring-1 ring-inset ring-bg"
         >
           <img src="./images/tri.svg" alt="" class="w-44 h-44 mb-10 md:mb-20" />
           <h3
@@ -111,7 +114,7 @@
           </ul>
         </article>
         <article
-          class="p-5 md:p-6 lg:p-10  rounded-rad bg-gradient-to-br from-white/10 to-white/5 shadow-innerLight ring ring-bg"
+          class="p-5 md:p-6 lg:p-10  rounded-rad bg-gradient-to-br from-white/10 to-white/5 shadow-inner-light ring-1 ring-inset ring-bg"
         >
           <img src="./images/cir.svg" alt="" class="w-44 h-44 mb-10 md:mb-20" />
           <h3
@@ -131,7 +134,7 @@
           </ul>
         </article>
         <article
-          class="p-5 md:p-6 lg:p-10   rounded-rad bg-gradient-to-br from-white/10 to-white/5 shadow-innerLight ring ring-bg"
+          class="p-5 md:p-6 lg:p-10   rounded-rad bg-gradient-to-br from-white/10 to-white/5 shadow-inner-light ring-1 ring-inset ring-bg"
         >
           <img src="./images/hex.svg" alt="" class="w-44 h-44 mb-10 md:mb-20" />
           <h3
@@ -171,10 +174,10 @@
         <div class="grid gap-16 lg:grid-cols-4 md:grid-cols-2 md:gap-8 lg:gap-4">
         <article>
           <picture>
-            <source media="(max-width:1023px)" srcset="images/Music.png?as=webp&width=316&height=316" type="image/webp" />
-            <source media="(max-width:1023px)" srcset="images/Music.png?as=avif&width=316&height=316" type="image/avif"/>
-            <source media="(min-width:1024px)" srcset="images/Music.png?as=webp&width=316" type="image/webp" />
-            <source media="(min-width:1024px)" srcset="images/Music.png?as=avif&width=316" type="image/avif"/>
+            <source media="(max-width:1023px)" srcset="images/Music.png?as=webp&width=750&height=750" type="image/webp" />
+            <source media="(max-width:1023px)" srcset="images/Music.png?as=avif&width=750&height=750" type="image/avif"/>
+            <source media="(min-width:1024px)" srcset="images/Music.png?as=webp&width=632" type="image/webp" />
+            <source media="(min-width:1024px)" srcset="images/Music.png?as=avif&width=632" type="image/avif"/>
             <img class="mb-6 w-full rounded-rad-xl" src="images/Music.png" alt="" />
           </picture>
           
@@ -186,10 +189,10 @@
         </article>
         <article>
           <picture>
-            <source media="(max-width:1023px)" srcset="images/marvelVsDc.png?as=webp&width=316&height=316" type="image/webp" />
-            <source media="(max-width:1023px)" srcset="images/marvelVsDc.png?as=avif&width=316&height=316" type="image/avif"/>
-            <source media="(min-width:1024px)" srcset="images/marvelVsDc.png?as=webp&width=316" type="image/webp" />
-            <source media="(min-width:1024px)" srcset="images/marvelVsDc.png?as=avif&width=316" type="image/avif"/>
+            <source media="(max-width:1023px)" srcset="images/marvelVsDc.png?as=webp&width=750&height=750" type="image/webp" />
+            <source media="(max-width:1023px)" srcset="images/marvelVsDc.png?as=avif&width=750&height=750" type="image/avif"/>
+            <source media="(min-width:1024px)" srcset="images/marvelVsDc.png?as=webp&width=632" type="image/webp" />
+            <source media="(min-width:1024px)" srcset="images/marvelVsDc.png?as=avif&width=632" type="image/avif"/>
             <img class="mb-6 w-full rounded-rad-xl" src="images/marvelVsDc.png" alt="" />
           </picture>
          
@@ -201,10 +204,10 @@
         </article>
         <article>
           <picture>
-            <source media="(max-width:1023px)" srcset="images/Car1.png?as=webp&width=316&height=316" type="image/webp" />
-            <source media="(max-width:1023px)" srcset="images/Car1.png?as=avif&width=316&height=316" type="image/avif"/>
-            <source media="(min-width:1024px)" srcset="images/Car1.png?as=webp&width=316" type="image/webp" />
-            <source media="(min-width:1024px)" srcset="images/Car1.png?as=avif&width=316" type="image/avif"/>
+            <source media="(max-width:1023px)" srcset="images/Car1.png?as=webp&width=750&height=750" type="image/webp" />
+            <source media="(max-width:1023px)" srcset="images/Car1.png?as=avif&width=750&height=750" type="image/avif"/>
+            <source media="(min-width:1024px)" srcset="images/Car1.png?as=webp&width=632" type="image/webp" />
+            <source media="(min-width:1024px)" srcset="images/Car1.png?as=avif&width=632" type="image/avif"/>
             <img class="mb-6 w-full rounded-rad-xl" src="images/Car1.png" alt="" />
           </picture>
           
@@ -217,10 +220,10 @@
         <article>
           <article>
             <picture>
-              <source media="(max-width:1023px)" srcset="images/famTravel.png?as=webp&width=316&height=316" type="image/webp" />
-              <source media="(max-width:1023px)" srcset="images/famTravel.png?as=avif&width=316&height=316" type="image/avif"/>
-              <source media="(min-width:1024px)" srcset="images/famTravel.png?as=webp&width=316" type="image/webp" />
-              <source media="(min-width:1024px)" srcset="images/famTravel.png?as=avif&width=316" type="image/avif"/>
+              <source media="(max-width:1023px)" srcset="images/famTravel.png?as=webp&width=750&height=750" type="image/webp" />
+              <source media="(max-width:1023px)" srcset="images/famTravel.png?as=avif&width=750&height=750" type="image/avif"/>
+              <source media="(min-width:1024px)" srcset="images/famTravel.png?as=webp&width=632" type="image/webp" />
+              <source media="(min-width:1024px)" srcset="images/famTravel.png?as=avif&width=632" type="image/avif"/>
               <img class="mb-6 w-full rounded-rad-xl" src="images/famTravel.png" alt="" />
             </picture>
            
@@ -251,7 +254,7 @@
         <p class="text-2xl text-gray-400 font-medium mb-6">or find me on</p>
         <ul class="flex gap-4 justify-center flex-wrap">
           <li>
-            <a class="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-white/10 to-white/5 shadow-innerLightMin"
+            <a class="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-white/10 to-white/5 shadow-inner-light-sm"
               rel="noopener"
               href="https://www.linkedin.com/in/norbert-skwierczynski/"
               target="_blank"
@@ -259,7 +262,7 @@
             /></a>
           </li>
           <li>
-            <a class="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-white/10 to-white/5 shadow-innerLightMin"
+            <a class="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-white/10 to-white/5 shadow-inner-light-sm"
               rel="noopener"
               href="https://www.facebook.com/norbert.skwierczynski"
               target="_blank"
@@ -267,7 +270,7 @@
             /></a>
           </li>
           <li>
-            <a class="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-white/10 to-white/5 shadow-innerLightMin"
+            <a class="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-white/10 to-white/5 shadow-inner-light-sm"
               rel="noopener"
               href="https://twitter.com/skwierczyn79670"
               target="_blank"
@@ -275,12 +278,13 @@
             /></a>
           </li>
           <li>
-            <a class="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-white/10 to-white/5 shadow-innerLightMin" rel="noopener" href="https://github.com/NoriFe" target="_blank"
+            <a class="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-white/10 to-white/5 shadow-inner-light-sm" rel="noopener" href="https://github.com/NoriFe" target="_blank"
               ><img width="24" height="24" class="w-6 h-6" src="./images/git.svg" alt="github"
             /></a>
           </li>
         </ul>
       </section>
+      </div>
     </main>
 
     <script type="module" src="./main.js"></script>
