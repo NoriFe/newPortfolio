@@ -1,6 +1,7 @@
-![cover](https://github.com/NoriFe/newPortfolio/src/images/start.png)
+![cover](https://github.com/NoriFe/newPortfolio/blob/main/src/images/start.png)
 
-# I`m looking for some opportunites to become Junior Frontend Developer
+
+# I`m looking for some opportunities to become a Junior Frontend Developer
 
 
 My new portfolio 2023.
@@ -8,6 +9,6 @@ My new portfolio 2023.
 ## Tools
 
 - HTML + CSS(tailwind framework) + JS
-- Github API
+- GitHub API
 - CSS Grid
 - Flex
