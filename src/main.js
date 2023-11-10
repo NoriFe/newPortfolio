@@ -1,4 +1,13 @@
-
+exports.handler = async (event, context) => {
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': 'https://norbert-knows.co.uk',
+        // Add other CORS headers as needed
+      },
+      body: JSON.stringify({ message: 'Hello, CORS-enabled World!' }),
+    };
+  };
 
 
 import star from './images/star.svg';
