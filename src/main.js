@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require('cors');
 app.use(cors({
-    origin:"https://norbert-knows.co.uk/"
+    origin:"https://norbertskwierczynski-portfolio.netlify.app/"
 }));
 import star from './images/star.svg';
 import demo from './images/demo.svg';
