@@ -1,11 +1,11 @@
-// const express = require('express');
-// const app = express();
+const express = require('express');
+const app = express();
 
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', 'https://norbert-knows.co.uk');
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://norbert-knows.co.uk');
  
-//   next();
-// });
+  next();
+});
 
 
 import star from './images/star.svg';
