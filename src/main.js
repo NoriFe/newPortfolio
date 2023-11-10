@@ -1,5 +1,7 @@
+const express = require("express");
+const app = express();
 const cors = require('cors');
-fetch.use(cors({
+app.use(cors({
     origin:"https://norbert-knows.co.uk/"
 }));
 import star from './images/star.svg';
