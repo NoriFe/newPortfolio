@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-const express = require("express");
-const app = express();
-const cors = require('cors');
-app.use(cors({
-    origin:"https://norbertskwierczynski-portfolio.netlify.app/"
-}));
-=======
->>>>>>> parent of 08e8997 (CORS problem)
+
 import star from './images/star.svg';
 import demo from './images/demo.svg';
 import source from './images/code.svg';
