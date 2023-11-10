@@ -1,4 +1,7 @@
-
+const cors = require('cors');
+fetch.use(cors({
+    origin:"https://norbert-knows.co.uk/"
+}));
 import star from './images/star.svg';
 import demo from './images/demo.svg';
 import source from './images/code.svg';
