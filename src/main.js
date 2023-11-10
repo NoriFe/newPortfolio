@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 // Your frontend code
 
+=======
+>>>>>>> parent of 08e8997 (CORS problem)
 import star from './images/star.svg';
 import demo from './images/demo.svg';
 import source from './images/code.svg';
