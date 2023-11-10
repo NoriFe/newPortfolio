@@ -21,7 +21,11 @@ const projectContainer = document.querySelector('.project--js');
 const username = 'NoriFe'
 const description = ''
 
-fetch(`https://api.github.com/users/${username}/repos`)
+fetch(`https://api.github.com/users/${username}/repos`, {
+    headers: {
+        'Access-Control-Allow-Origin': '*'
+    }
+})
 .then(response => response.json())
 .then(response => {
     for (let repository of response) {
