@@ -1,0 +1,4 @@
+[[headers.functions]]
+  for = "./main.js"
+    [headers.functions.values]
+      Access-Control-Allow-Origin = "*"
