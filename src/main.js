@@ -5,7 +5,7 @@ exports.handler = async (event, context) => {
         'Access-Control-Allow-Origin': '*',
     
       },
-      body: JSON.stringify({ message: 'Hello, CORS-enabled World!' }),
+     
     };
   };
 
