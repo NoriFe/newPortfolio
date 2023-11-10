@@ -1,14 +1,3 @@
-exports.handler = async (event, context) => {
-    return {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-    
-      },
-     
-    };
-  };
-
 
 import star from './images/star.svg';
 import demo from './images/demo.svg';

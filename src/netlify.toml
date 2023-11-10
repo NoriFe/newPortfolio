@@ -1,7 +1,10 @@
-[[headers.functions]]
-  for = "./main.js"
-    [headers.functions.values]
-      Access-Control-Allow-Origin = "*"
-
-      [build]
-node_version = "14"
+[[redirects]]
+  from = "/<https://norbertskwierczynski-portfolio.netlify.app/>"
+  to = "<https://norbert-knows.co.uk/>"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
