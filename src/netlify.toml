@@ -1,4 +1,4 @@
 [[headers]]
   for = "/*"
     [headers.values]
-      Access-Control-Allow-Origin = "https://norbert-knows.co.uk"
+      Access-Control-Allow-Origin = "*"
