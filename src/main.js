@@ -70,5 +70,5 @@ projectContainer.insertAdjacentHTML('afterbegin', element)
     }
 })
 .catch((e) => console.log(e));
-
+  
 

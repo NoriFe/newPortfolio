@@ -8,3 +8,18 @@ html {
 *{
     scroll-margin-top: 6.5rem;
 }
+
+.centered-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    max-width: 90%;
+    max-height: 90vh;
+}
+
+
+.centered-image.hidden {
+    display: none;
+}
