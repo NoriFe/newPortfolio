@@ -3,85 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Achievements - Norbert Skwierczynski</title>
+    <title>Certification - Norbert Skwierczynski</title>
+
     <link href="./index.css" rel="stylesheet" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+    
     <link rel="icon" href="./images/favicon.ico">
-    
-    
-
 </head>
-<body class="bg-bg">
-  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
-    <!-- Certificate 1 -->
-      <div class="cursor-pointer">
-        <div>
+<body class="bg-bg  text-white flex justify-center items-center">
+<div>
+  <h2 class="text-gray-400 mt-8 m-4 text-xl tracking-wider font-bold mb-4 uppercase">Certifications</h2>
+        <p class="text-2xl m-4 md:text-4xl md:max-w-3xl font-medium tracking-tight mb-10 md:mb-20">
+          As I embarked on my learning journey, I explored various avenues to determine the most suitable approach for me. Below are some of my certifications, representing milestones along this enriching path.
+        </p>
+  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 justify-center items-stretch p-4">
+      <div>
+        <div class="cursor-pointer flex justify-center items-center h-full">
             <picture>
                 <source media="(max-width:1023px)" srcset="images/cert1.jpg?as=webp&width=750&height=750" type="image/webp" />
                 <source media="(max-width:1023px)" srcset="images/cert1.jpg?as=avif&width=750&height=750" type="image/avif" />
                 <source media="(min-width:1024px)" srcset="images/cert1.jpg?as=webp&width=632" type="image/webp" />
                 <source media="(min-width:1024px)" srcset="images/cert1.jpg?as=avif&width=632" type="image/avif" />
-                <img class="w-full rounded-lg object-cover object-center" id="pic1" src="images/cert1.jpg" alt="Certificate" />
+                <img id="pic1" class="mb-6 w-full rounded-rad-xl" src="images/cert1.jpg" alt="Certificate" />
             </picture>
         </div>
-      </div> 
-    <!-- Certificate 2 -->
-    
-        <div>
-            <picture>
-                <source media="(max-width:1023px)" srcset="images/cert2.jpg?as=webp&width=750&height=750" type="image/webp" />
-                <source media="(max-width:1023px)" srcset="images/cert2.jpg?as=avif&width=750&height=750" type="image/avif" />
-                <source media="(min-width:1024px)" srcset="images/cert2.jpg?as=webp&width=632" type="image/webp" />
-                <source media="(min-width:1024px)" srcset="images/cert2.jpg?as=avif&width=632" type="image/avif" />
-                <img class="w-full rounded-lg object-cover object-center" src="images/cert2.jpg" alt="Certificate" />
-            </picture>
-        </div>
-    
-    <!-- Certificate 3 -->
-    <div class="cursor-pointer" onclick="showImage('images/cert3.jpg')">
-        <div>
-            <picture>
-                <source media="(max-width:1023px)" srcset="images/cert3.jpg?as=webp&width=750&height=750" type="image/webp" />
-                <source media="(max-width:1023px)" srcset="images/cert3.jpg?as=avif&width=750&height=750" type="image/avif" />
-                <source media="(min-width:1024px)" srcset="images/cert3.jpg?as=webp&width=632" type="image/webp" />
-                <source media="(min-width:1024px)" srcset="images/cert3.jpg?as=avif&width=632" type="image/avif" />
-                <img class="w-full rounded-lg object-cover object-center" src="images/cert3.jpg" alt="Certificate" />
-            </picture>
-        </div>
+      </div>     
+    <div class="cursor-pointer">
+        <picture>
+            <source media="(max-width:1023px)" srcset="images/cert2.jpg?as=webp&width=750&height=750" type="image/webp" />
+            <source media="(max-width:1023px)" srcset="images/cert2.jpg?as=avif&width=750&height=750" type="image/avif" />
+            <source media="(min-width:1024px)" srcset="images/cert2.jpg?as=webp&width=632" type="image/webp" />
+            <source media="(min-width:1024px)" srcset="images/cert2.jpg?as=avif&width=632" type="image/avif" />
+            <img class="mb-6 w-full rounded-rad-xl" id="pic2" src="images/cert2.jpg" alt="Certificate" />
+        </picture>
+    </div>   
+    <div class="cursor-pointer">
+        <picture>
+            <source media="(max-width:1023px)" srcset="images/cert3.jpg?as=webp&width=750&height=750" type="image/webp" />
+            <source media="(max-width:1023px)" srcset="images/cert3.jpg?as=avif&width=750&height=750" type="image/avif" />
+            <source media="(min-width:1024px)" srcset="images/cert3.jpg?as=webp&width=632" type="image/webp" />
+            <source media="(min-width:1024px)" srcset="images/cert3.jpg?as=avif&width=632" type="image/avif" />
+            <img class="mb-6 w-full rounded-rad-xl" id="pic3" src="images/cert3.jpg" alt="Certificate" />
+        </picture>
+    </div>     
+    <div class="cursor-pointer">
+        <picture>
+            <source media="(max-width:1023px)" srcset="images/Coursera.png?as=webp&width=750&height=750" type="image/webp" />
+            <source media="(max-width:1023px)" srcset="images/Coursera.png?as=avif&width=750&height=750" type="image/avif" />
+            <source media="(min-width:1024px)" srcset="images/Coursera.png?as=webp&width=632" type="image/webp" />
+            <source media="(min-width:1024px)" srcset="images/Coursera.png?as=avif&width=632" type="image/avif" />
+            <img class="mb-6 w-full rounded-rad-xl" src="images/Coursera.png" alt="Certificate" />
+        </picture>
+    </div>  
+    <div class="cursor-pointer">
+        <picture>
+            <source media="(max-width:1023px)" srcset="images/mydiploma.png?as=webp&width=750&height=750" type="image/webp" />
+            <source media="(max-width:1023px)" srcset="images/mydiploma.png?as=avif&width=750&height=750" type="image/avif" />
+            <source media="(min-width:1024px)" srcset="images/mydiploma.png?as=webp&width=632" type="image/webp" />
+            <source media="(min-width:1024px)" srcset="images/mydiploma.png?as=avif&width=632" type="image/avif" />
+            <img class="mb-6 w-full rounded-rad-xl" src="images/mydiploma.png" alt="Certificate" />
+        </picture>
     </div>
-    <!-- Certificate 4 -->
-    <div class="cursor-pointer" onclick="showImage('images/Coursera.png')">
-        <div>
-            <picture>
-                <source media="(max-width:1023px)" srcset="images/Coursera.png?as=webp&width=750&height=750" type="image/webp" />
-                <source media="(max-width:1023px)" srcset="images/Coursera.png?as=avif&width=750&height=750" type="image/avif" />
-                <source media="(min-width:1024px)" srcset="images/Coursera.png?as=webp&width=632" type="image/webp" />
-                <source media="(min-width:1024px)" srcset="images/Coursera.png?as=avif&width=632" type="image/avif" />
-                <img class="w-full rounded-lg object-cover object-center" src="images/Coursera.png" alt="Certificate" />
-            </picture>
-        </div>
-    </div>
-    <!-- Certificate 5 -->
-    <div class="cursor-pointer" onclick="showImage('images/mydiploma.png')">
-        <div>
-            <picture>
-                <source media="(max-width:1023px)" srcset="images/mydiploma.png?as=webp&width=750&height=750" type="image/webp" />
-                <source media="(max-width:1023px)" srcset="images/mydiploma.png?as=avif&width=750&height=750" type="image/avif" />
-                <source media="(min-width:1024px)" srcset="images/mydiploma.png?as=webp&width=632" type="image/webp" />
-                <source media="(min-width:1024px)" srcset="images/mydiploma.png?as=avif&width=632" type="image/avif" />
-                <img class="w-full rounded-lg object-cover object-center" src="images/mydiploma.png" alt="Certificate" />
-            </picture>
-        </div>
-    </div>
-</section>
-
-
-
-
+  </section>
+  <div class="flex justify-center">
+    <a class="bg-accent text-bg mb-10 font-bold text-lg px-60 py-2 rounded-rad-xl hover:bg-accent-dark animate-pulse" href="/">Go Back</a>
+  </div>
+</div>
   <script type="module" src="./pictures.js"></script>
-
 </body>
-
 </html>

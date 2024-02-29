@@ -1,27 +1,27 @@
-const pic1 = document.getElementById('pic1');
+const pictureElements = document.querySelectorAll('.cursor-pointer');
 let isImageVisible = false;
 let centeredImg;
 
-function toggleImageDisplay() {
+function toggleImageDisplay(event) {
+    const pic = event.currentTarget.querySelector('img');
     if (isImageVisible) {
         centeredImg.remove(); 
     } else {
-       
         centeredImg = document.createElement('img');
-        centeredImg.src = pic1.src;
-        centeredImg.alt = pic1.alt;
+        centeredImg.src = pic.src;
+        centeredImg.alt = pic.alt;
         centeredImg.classList.add('centered-image');
         document.body.appendChild(centeredImg);
     }
     isImageVisible = !isImageVisible; 
 }
 
-
-pic1.addEventListener('click', toggleImageDisplay);
-
+pictureElements.forEach((element) => {
+    element.addEventListener('click', toggleImageDisplay);
+});
 
 document.addEventListener('click', (event) => {
     if (isImageVisible && event.target === centeredImg) {
-        toggleImageDisplay();
+        toggleImageDisplay(event);
     }
 });
