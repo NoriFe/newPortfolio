@@ -23,3 +23,20 @@ html {
 .centered-image.hidden {
     display: none;
 }
+
+.skills-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.skills-list li::before {
+    content: "";
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%2370FF00' d='M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z'/%3E%3C/svg%3E");
+}
