@@ -70,5 +70,21 @@ projectContainer.insertAdjacentHTML('afterbegin', element)
     }
 })
 .catch((e) => console.log(e));
+
+const aiLauncher = document.querySelector('#aiLauncher');
+
+if (aiLauncher) {
+    const aiLauncherWrap = aiLauncher.closest('.ai-launcher-wrap');
+
+    aiLauncher.addEventListener('click', () => {
+        const isExpanded = aiLauncher.getAttribute('aria-expanded') === 'true';
+        const nextState = !isExpanded;
+
+        aiLauncher.setAttribute('aria-expanded', String(nextState));
+        if (aiLauncherWrap) {
+            aiLauncherWrap.classList.toggle('is-open', nextState);
+        }
+    });
+}
   
 
