@@ -79,8 +79,8 @@ html {
 }
 
 .ai-launcher {
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(3, 7, 18, 0.95));
     border-radius: 9999px;
@@ -108,6 +108,10 @@ html {
     animation-play-state: paused;
 }
 
+.ai-launcher[aria-expanded="false"] .ai-launcher__arm {
+    animation-play-state: running;
+}
+
 .ai-launcher-wrap.is-open .ai-launcher-bubble {
     opacity: 0;
     transform: translateX(8px);
@@ -115,6 +119,8 @@ html {
 }
 
 .ai-launcher-wrap .ai-launcher-bubble {
+    opacity: 1;
+    transform: translateX(0);
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
@@ -129,8 +135,8 @@ html {
 
 .ai-launcher__bot {
     position: relative;
-    width: 2rem;
-    height: 2rem;
+    width: 2.7rem;
+    height: 2.7rem;
     border-radius: 9999px;
     background: radial-gradient(circle at 30% 30%, #ffffff, #cbd5e1 55%, #94a3b8 100%);
     border: 1px solid rgba(15, 23, 42, 0.25);
@@ -141,8 +147,8 @@ html {
 }
 
 .ai-launcher__eye {
-    width: 0.28rem;
-    height: 0.28rem;
+    width: 0.38rem;
+    height: 0.38rem;
     border-radius: 9999px;
     background: #0f172a;
     box-shadow: 0 0 0 2px rgba(112, 255, 0, 0.18);
@@ -150,10 +156,10 @@ html {
 
 .ai-launcher__antenna {
     position: absolute;
-    top: -0.38rem;
+    top: -0.5rem;
     left: 50%;
-    width: 0.1rem;
-    height: 0.35rem;
+    width: 0.14rem;
+    height: 0.46rem;
     background: #94a3b8;
     transform: translateX(-50%);
 }
@@ -161,10 +167,10 @@ html {
 .ai-launcher__antenna::after {
     content: "";
     position: absolute;
-    top: -0.18rem;
+    top: -0.24rem;
     left: 50%;
-    width: 0.32rem;
-    height: 0.32rem;
+    width: 0.42rem;
+    height: 0.42rem;
     border-radius: 9999px;
     background: #70FF00;
     transform: translateX(-50%);
@@ -172,10 +178,10 @@ html {
 
 .ai-launcher__arm {
     position: absolute;
-    right: -0.38rem;
-    top: 0.72rem;
-    width: 0.6rem;
-    height: 0.15rem;
+    right: -0.5rem;
+    top: 1rem;
+    width: 0.85rem;
+    height: 0.2rem;
     border-radius: 9999px;
     background: #cbd5e1;
     transform-origin: left center;
@@ -206,7 +212,19 @@ html {
     }
 
     .ai-launcher {
-        width: 2.85rem;
-        height: 2.85rem;
+        width: 4rem;
+        height: 4rem;
     }
+}
+
+.ai-launcher__bot::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0.62rem;
+    width: 0.8rem;
+    height: 0.4rem;
+    border-bottom: 2px solid #0f172a;
+    border-radius: 0 0 9999px 9999px;
+    transform: translateX(-50%);
 }
