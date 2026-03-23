@@ -340,6 +340,41 @@
           <span class="ai-launcher__arm"></span>
         </span>
       </button>
+      <section
+        class="ai-chat-panel"
+        id="aiChatPanel"
+        aria-hidden="true"
+        aria-label="CV assistant chat"
+      >
+        <header class="ai-chat-panel__header">
+          <div>
+            <p class="ai-chat-panel__title">CV Assistant</p>
+            <p class="ai-chat-panel__status">Online now</p>
+          </div>
+          <button
+            class="ai-chat-panel__close"
+            id="aiChatClose"
+            type="button"
+            aria-label="Close chat"
+          >
+            x
+          </button>
+        </header>
+        <div class="ai-chat-panel__body">
+          <article class="ai-chat-message ai-chat-message--bot">
+            Welcome! I am Norbert's CV assistant. Ask me about experience, projects, skills, certifications, or contact details.
+          </article>
+        </div>
+        <form class="ai-chat-panel__composer" action="#" aria-label="Type your message">
+          <input
+            class="ai-chat-panel__input"
+            id="aiChatInput"
+            type="text"
+            placeholder="Ask about skills, projects, or experience..."
+          />
+          <button class="ai-chat-panel__send" type="submit">Send</button>
+        </form>
+      </section>
     </div>
 
     <script type="module" src="./main.js"></script>

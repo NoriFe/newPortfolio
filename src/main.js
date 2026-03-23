@@ -72,6 +72,10 @@ projectContainer.insertAdjacentHTML('afterbegin', element)
 .catch((e) => console.log(e));
 
 const aiLauncher = document.querySelector('#aiLauncher');
+const aiChatPanel = document.querySelector('#aiChatPanel');
+const aiChatClose = document.querySelector('#aiChatClose');
+const aiChatInput = document.querySelector('#aiChatInput');
+const aiChatComposer = document.querySelector('.ai-chat-panel__composer');
 
 if (aiLauncher) {
     const aiLauncherWrap = aiLauncher.closest('.ai-launcher-wrap');
@@ -80,6 +84,12 @@ if (aiLauncher) {
         const isExpanded = aiLauncher.getAttribute('aria-expanded') === 'true';
         if (aiLauncherWrap) {
             aiLauncherWrap.classList.toggle('is-open', isExpanded);
+        }
+        if (aiChatPanel) {
+            aiChatPanel.setAttribute('aria-hidden', String(!isExpanded));
+        }
+        if (isExpanded && aiChatInput) {
+            window.setTimeout(() => aiChatInput.focus(), 140);
         }
     };
 
@@ -91,6 +101,28 @@ if (aiLauncher) {
 
         aiLauncher.setAttribute('aria-expanded', String(nextState));
         syncLauncherState();
+    });
+
+    if (aiChatClose) {
+        aiChatClose.addEventListener('click', () => {
+            aiLauncher.setAttribute('aria-expanded', 'false');
+            syncLauncherState();
+            aiLauncher.focus();
+        });
+    }
+
+    if (aiChatComposer) {
+        aiChatComposer.addEventListener('submit', (event) => {
+            event.preventDefault();
+        });
+    }
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && aiLauncher.getAttribute('aria-expanded') === 'true') {
+            aiLauncher.setAttribute('aria-expanded', 'false');
+            syncLauncherState();
+            aiLauncher.focus();
+        }
     });
 }
   
