@@ -36,3 +36,39 @@ npm run build
 ```
 
 Then confirm generated files exist in `dist/` (HTML, CSS, JS, images).
+
+## AI Chat On Cloudflare Worker (Wrangler)
+
+This project uses a single Worker for both static assets and chat API route.
+
+- Worker entry: `worker.js`
+- Config: `wrangler.toml`
+- API route: `/api/chat`
+
+### Required Secret
+
+Add the Groq key with Wrangler CLI:
+
+```bash
+npx wrangler secret put GROQ_API_KEY
+```
+
+Important: the command expects the variable name, not the key value.
+Wrangler will prompt you to paste the secret value after running the command.
+
+### Deploy With Wrangler
+
+```bash
+npm run build
+npx wrangler deploy
+```
+
+The Worker serves files from `dist/` via the `ASSETS` binding and handles `/api/chat` in `worker.js`.
+
+### Safety Controls Included
+
+- Message length validation
+- Topic restriction (answers only about Norbert's profile)
+- Prompt injection keyword blocking
+- Basic per-IP rate limiting
+- Strict system prompt to avoid inventing facts

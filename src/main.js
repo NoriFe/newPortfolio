@@ -76,6 +76,53 @@ const aiChatPanel = document.querySelector('#aiChatPanel');
 const aiChatClose = document.querySelector('#aiChatClose');
 const aiChatInput = document.querySelector('#aiChatInput');
 const aiChatComposer = document.querySelector('.ai-chat-panel__composer');
+const aiChatMessages = document.querySelector('#aiChatMessages');
+const aiChatSend = document.querySelector('#aiChatSend');
+
+const chatHistory = [];
+
+const addChatMessage = (role, text, extraClass = '') => {
+    if (!aiChatMessages) {
+        return null;
+    }
+
+    const messageNode = document.createElement('article');
+    const roleClass = role === 'user' ? 'ai-chat-message--user' : 'ai-chat-message--bot';
+    messageNode.className = `ai-chat-message ${roleClass}${extraClass ? ` ${extraClass}` : ''}`;
+    messageNode.textContent = text;
+    aiChatMessages.appendChild(messageNode);
+    aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+    return messageNode;
+};
+
+const setComposerState = (isSending) => {
+    if (aiChatSend) {
+        aiChatSend.disabled = isSending;
+    }
+    if (aiChatInput) {
+        aiChatInput.disabled = isSending;
+    }
+};
+
+const requestChatReply = async (message) => {
+    const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            message,
+            history: chatHistory
+        })
+    });
+
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) {
+        throw new Error(payload.error || 'Chat service unavailable');
+    }
+
+    return payload.reply;
+};
 
 if (aiLauncher) {
     const aiLauncherWrap = aiLauncher.closest('.ai-launcher-wrap');
@@ -112,8 +159,44 @@ if (aiLauncher) {
     }
 
     if (aiChatComposer) {
-        aiChatComposer.addEventListener('submit', (event) => {
+        aiChatComposer.addEventListener('submit', async (event) => {
             event.preventDefault();
+
+            const value = (aiChatInput?.value || '').trim();
+            if (!value) {
+                return;
+            }
+
+            addChatMessage('user', value);
+            chatHistory.push({ role: 'user', text: value });
+
+            if (aiChatInput) {
+                aiChatInput.value = '';
+            }
+
+            setComposerState(true);
+            const typingNode = addChatMessage('assistant', 'Thinking...', 'ai-chat-message--typing');
+
+            try {
+                const reply = await requestChatReply(value);
+                if (typingNode) {
+                    typingNode.remove();
+                }
+                addChatMessage('assistant', reply);
+                chatHistory.push({ role: 'assistant', text: reply });
+            } catch (error) {
+                if (typingNode) {
+                    typingNode.remove();
+                }
+                const fallback = 'I had trouble reaching the chat service. Please try again in a moment.';
+                addChatMessage('assistant', fallback);
+                chatHistory.push({ role: 'assistant', text: fallback });
+            } finally {
+                setComposerState(false);
+                if (aiChatInput) {
+                    aiChatInput.focus();
+                }
+            }
         });
     }
 

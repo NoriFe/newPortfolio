@@ -1,0 +1,11 @@
+name = "portfolio"
+main = "worker.js"
+compatibility_date = "2026-03-23"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "./dist"
+
+[[rules]]
+type = "ESModule"
+globs = ["**/*.js"]
