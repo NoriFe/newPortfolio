@@ -198,28 +198,72 @@
       });
 
       const users = [
-        { username: 'alice', email: 'alice@example.com' },
-        { username: 'bob', email: 'bob@example.com' },
-        { username: 'carol', email: 'carol@example.com' },
-        { username: 'dave', email: 'dave@example.com' },
-        { username: 'eve', email: 'eve@example.com' }
+        { id: 1, username: 'alice', email: 'alice@example.com' },
+        { id: 2, username: 'bob', email: 'bob@example.com' },
+        { id: 3, username: 'carol', email: 'carol@example.com' },
+        { id: 4, username: 'dave', email: 'dave@example.com' },
+        { id: 5, username: 'eve', email: 'eve@example.com' }
       ];
       const sqlInput = document.getElementById('sql-input');
       const sqlQuery = document.getElementById('sql-query');
       const sqlResults = document.getElementById('sql-results');
 
-      document.getElementById('sql-submit').addEventListener('click', () => {
-        const value = sqlInput.value.trim();
+      const renderSqlQuery = (value) => {
         const escaped = value.replace(/"/g, '\\"');
         sqlQuery.textContent = `SELECT * FROM users WHERE username = '${escaped}';`;
-        if (value === "1' OR '1'='1") {
-          sqlResults.innerHTML = users.map((user) => `<div class="rounded-rad bg-bg/40 p-3 border border-white/10 text-white"><strong>${user.username}</strong> — ${user.email}</div>`).join('');
-        } else {
-          const found = users.find((user) => user.username === value);
-          sqlResults.innerHTML = found
-            ? `<div class="rounded-rad bg-bg/40 p-3 border border-white/10 text-white"><strong>${found.username}</strong> — ${found.email}</div>`
-            : '<div class="text-gray-400">No rows returned.</div>';
+      };
+
+      const renderResults = (rows) => {
+        if (!rows || rows.length === 0) {
+          sqlResults.innerHTML = '<div class="text-gray-400">No rows returned.</div>';
+          return;
         }
+        const headers = ['ID', 'Username', 'Email'];
+        sqlResults.innerHTML = `
+          <table class="w-full text-left border-collapse text-gray-200">
+            <thead>
+              <tr class="border-b border-white/10 text-gray-400">
+                ${headers.map((h) => `<th class="px-4 py-3">${h}</th>`).join('')}
+              </tr>
+            </thead>
+            <tbody>
+              ${rows.map((row) => `
+                <tr class="border-b border-white/10 hover:bg-white/5">
+                  <td class="px-4 py-3">${row.id}</td>
+                  <td class="px-4 py-3">${row.username}</td>
+                  <td class="px-4 py-3">${row.email}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        `;
+      };
+
+      const updateSqlQuery = () => {
+        renderSqlQuery(sqlInput.value.trim());
+      };
+
+      sqlInput.addEventListener('input', updateSqlQuery);
+      updateSqlQuery();
+
+      document.getElementById('sql-submit').addEventListener('click', () => {
+        const value = sqlInput.value.trim();
+        renderSqlQuery(value);
+
+        if (value === "1' OR '1'='1") {
+          renderResults(users);
+          return;
+        }
+
+        const numericId = Number(value);
+        if (!Number.isNaN(numericId)) {
+          const found = users.filter((user) => user.id === numericId);
+          renderResults(found);
+          return;
+        }
+
+        const foundByName = users.filter((user) => user.username === value);
+        renderResults(foundByName);
       });
 
       const xssInput = document.getElementById('xss-input');
