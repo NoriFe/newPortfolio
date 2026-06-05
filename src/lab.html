@@ -91,7 +91,10 @@
               <label class="block text-sm font-bold uppercase tracking-wider text-gray-400">Search users</label>
               <div class="flex flex-col sm:flex-row gap-3">
                 <input id="sql-input" class="flex-1 rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" placeholder="Try: 1' OR '1'='1" />
-                <button id="sql-submit" class="bg-accent hover:bg-accent-600 text-bg rounded-xl py-3 px-6 font-bold transition-colors duration-500">Submit</button>
+                <div class="flex gap-3">
+                  <button id="sql-submit" class="bg-accent hover:bg-accent-600 text-bg rounded-xl py-3 px-6 font-bold transition-colors duration-500">Submit</button>
+                  <button id="sql-try" class="rounded-rad border border-white/10 text-white hover:border-accent hover:text-accent py-3 px-6 transition-colors duration-500">Try the Attack</button>
+                </div>
               </div>
               <p class="text-sm text-gray-400">👆 Paste the text from the placeholder and click Submit</p>
               <div class="rounded-rad bg-white/5 p-5 border border-white/10 text-sm text-gray-300">
@@ -115,7 +118,10 @@
             <div class="space-y-4">
               <label class="block text-sm font-bold uppercase tracking-wider text-gray-400">Comment</label>
               <textarea id="xss-input" rows="3" class="w-full rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" placeholder="<script>alert('hacked')</script>"></textarea>
-              <button id="xss-post" class="bg-accent hover:bg-accent-600 text-bg rounded-xl py-3 px-6 font-bold transition-colors duration-500">Post Comment</button>
+              <div class="flex flex-col sm:flex-row gap-3">
+                <button id="xss-post" class="bg-accent hover:bg-accent-600 text-bg rounded-xl py-3 px-6 font-bold transition-colors duration-500">Post Comment</button>
+                <button id="xss-try" class="rounded-rad border border-white/10 text-white hover:border-accent hover:text-accent py-3 px-6 transition-colors duration-500">Try the Attack</button>
+              </div>
               <p class="text-sm text-gray-400">👆 Paste the text from the placeholder and click Post Comment</p>
               <div id="xss-feed" class="rounded-rad bg-white/5 p-5 border border-white/10 text-gray-300 min-h-[6rem]"></div>
             </div>
@@ -130,9 +136,12 @@
             </p>
             <div class="space-y-4">
               <label class="block text-sm font-bold uppercase tracking-wider text-gray-400">Ping host</label>
-              <div class="flex flex-col sm:flex-row gap-3">
-                <input id="cmd-input" class="flex-1 rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" placeholder="127.0.0.1; whoami" />
-                <button id="cmd-run" class="bg-accent hover:bg-accent-600 text-bg rounded-xl py-3 px-6 font-bold transition-colors duration-500">Run</button>
+              <div class="flex flex-col gap-3">
+                <div class="flex flex-col sm:flex-row gap-3">
+                  <input id="cmd-input" class="flex-1 rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" placeholder="127.0.0.1; whoami" />
+                  <button id="cmd-run" class="bg-accent hover:bg-accent-600 text-bg rounded-xl py-3 px-6 font-bold transition-colors duration-500">Run</button>
+                </div>
+                <button id="cmd-try" class="rounded-rad border border-white/10 text-white hover:border-accent hover:text-accent py-3 px-6 transition-colors duration-500 w-full sm:w-auto">Try the Attack</button>
               </div>
               <p class="text-sm text-gray-400">👆 Paste the text from the placeholder and click Run</p>
               <pre id="cmd-output" class="rounded-rad bg-black/10 p-5 border border-white/10 text-gray-300 whitespace-pre-wrap min-h-[10rem]"></pre>
@@ -276,6 +285,11 @@
         renderResults(foundByName, errorHtml);
       });
 
+      document.getElementById('sql-try').addEventListener('click', () => {
+        sqlInput.value = "1' OR '1'='1";
+        document.getElementById('sql-submit').click();
+      });
+
       const xssInput = document.getElementById('xss-input');
       const xssFeed = document.getElementById('xss-feed');
       const escapeHtml = (value) =>
@@ -302,6 +316,11 @@
         xssInput.value = '';
       });
 
+      document.getElementById('xss-try').addEventListener('click', () => {
+        xssInput.value = "alert('hacked')";
+        document.getElementById('xss-post').click();
+      });
+
       const cmdInput = document.getElementById('cmd-input');
       const cmdOutput = document.getElementById('cmd-output');
       let cmdInjectionTimeout;
@@ -318,6 +337,11 @@
             cmdOutput.textContent = `${output}\nwww-data\n\n⚠️ Injected command executed on server`;
           }, 1000);
         }
+      });
+
+      document.getElementById('cmd-try').addEventListener('click', () => {
+        cmdInput.value = '127.0.0.1; whoami';
+        document.getElementById('cmd-run').click();
       });
 
       const fileOutput = document.getElementById('file-output');
