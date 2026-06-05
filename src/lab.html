@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lab - Norbert Skwierczynski</title>
+    <title>Security Lab - Norbert Skwierczynski</title>
     <link href="./index.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,49 +11,247 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="./images/favicon.ico">
-    <meta name="description" content="Lab - Norbert Skwierczynski"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:image" content="./images/start.png"/>
-    <meta property="og:title" content="Lab - Norbert Skwierczynski" />   
-    <meta property="og:description" content="Lab - Norbert Skwierczynski" />
+    <link rel="icon" href="./images/favicon.ico" />
+    <meta name="description" content="Security Lab interactive vulnerability demos" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Security Lab - Norbert Skwierczynski" />
+    <meta property="og:description" content="Interactive simulated security lab for web vulnerabilities." />
   </head>
   <body class="font-dmsans bg-bg text-white">
     <main>
-      <header class=" py-3 md:py-6 sticky top-0 bg-bg/40 backdrop-blur-lg px-4">
+      <header class="py-3 md:py-6 sticky top-0 bg-bg/40 backdrop-blur-lg px-4">
         <div class="flex justify-between gap-4 max-w-maxW mx-auto">
-        <div class="flex gap-4 items-center">
-          <img class="w-10 h-10 animate-slowSpin" src="./images/logo.svg" alt="" />
-          <div>
-            <p class="text-xl font-bold text-accent">Norbert Skwierczynski</p>
-            <p aria-label="Full-Stack Developer and Cybersecurity Enthusiast" class="text-white opacity-40 uppercase text-xs tracking-wider">
-              Full-Stack Developer | Cybersecurity
-            </p>
+          <div class="flex gap-4 items-center">
+            <img class="w-10 h-10 animate-slowSpin" src="./images/logo.svg" alt="Logo" />
+            <div>
+              <p class="text-xl font-bold text-accent">Norbert Skwierczynski</p>
+              <p aria-label="Full-Stack Developer and Cybersecurity Enthusiast" class="text-white opacity-40 uppercase text-xs tracking-wider">
+                Full-Stack Developer | Cybersecurity
+              </p>
+            </div>
           </div>
-        </div>
-        <nav class="hidden  md:block">
-          <ul class="flex gap-10 font-bold items-center">
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#skills">Skills</a></li>
-            <li><a href="index.html#projects">Projects</a></li>
-            <li><a href="lab.html">Lab</a></li>
-            <li><a class="inline-block bg-accent text-bg rounded-xl py-3.5 px-8" href="index.html#contact">Contact</a></li>
-          </ul>
-        </nav>
+          <nav class="hidden md:block">
+            <ul class="flex gap-10 font-bold items-center">
+              <li><a href="index.html">About</a></li>
+              <li><a class="text-accent" aria-current="page" href="lab.html">Lab</a></li>
+              <li><a class="inline-block bg-accent text-bg rounded-xl py-3.5 px-8" href="index.html#contact">Contact</a></li>
+            </ul>
+          </nav>
         </div>
       </header>
+
       <div class="px-4">
-      <section class="max-w-maxW mx-auto md:mb-32 md:pt-32 mb-20">
-        <h1 class="text-2xl md:text-3xl lg:text-5xl md:leading-snug lg:leading-snug font-bold mb-4">
-          Lab
-        </h1>
-        <p class="text-gray-400 md:mb-15 mb-8 md:text-2xl font-medium">
-          Experimental projects and learning resources.
-        </p>
-      </section>
+        <section class="max-w-maxW mx-auto md:mb-32 mb-20 md:pt-32">
+          <p class="text-gray-400 text-xs uppercase tracking-wider mb-4">Interactive security lab</p>
+          <h1 class="text-3xl md:text-5xl font-bold leading-snug mb-6">Security Lab</h1>
+          <p class="text-2xl md:text-4xl md:max-w-3xl font-medium tracking-tight text-gray-300">
+            Real vulnerabilities. Real attacks. Safe environment.
+          </p>
+        </section>
+
+        <section class="max-w-maxW mx-auto mb-20 md:mb-32">
+          <article class="p-8 rounded-rad bg-gradient-to-br from-white/10 to-white/5 shadow-inner-light ring-1 ring-inset ring-bg">
+            <h2 class="text-3xl font-bold tracking-tight mb-4">Brute Force</h2>
+            <p class="text-gray-400 text-lg mb-6">
+              A brute force attack tries many passwords until one succeeds. Weak passwords are easy to guess, so protecting login forms is critical to stop attackers from gaining access.
+            </p>
+            <div class="grid gap-4 md:grid-cols-[minmax(0,1fr)_280px]">
+              <div class="space-y-4">
+                <label class="block text-sm font-bold uppercase tracking-wider text-gray-400">Username</label>
+                <input id="bf-username" class="w-full rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" value="admin" />
+                <button id="bf-start" class="bg-accent hover:bg-accent-600 text-bg rounded-xl py-3 px-6 font-bold transition-colors duration-500">Start Attack</button>
+                <div class="rounded-rad bg-white/5 p-4 border border-white/10 text-sm text-gray-300">
+                  <div><strong>Attempts:</strong> <span id="bf-attempts">0</span></div>
+                  <div><strong>Current password:</strong> <span id="bf-current">—</span></div>
+                  <div><strong>Status:</strong> <span id="bf-status">Waiting for attack</span></div>
+                </div>
+              </div>
+              <div class="rounded-rad bg-white/5 p-6 border border-white/10">
+                <p class="text-gray-300 font-medium mb-3">Password list</p>
+                <ul class="list-disc list-inside text-gray-400 space-y-2">
+                  <li>123456</li>
+                  <li>password</li>
+                  <li>qwerty</li>
+                  <li>letmein</li>
+                  <li>admin123</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="max-w-maxW mx-auto mb-20 md:mb-32">
+          <article class="p-8 rounded-rad bg-gradient-to-br from-white/10 to-white/5 shadow-inner-light ring-1 ring-inset ring-bg">
+            <h2 class="text-3xl font-bold tracking-tight mb-4">SQL Injection</h2>
+            <p class="text-gray-400 text-lg mb-6">
+              SQL injection allows malicious input to alter the database query. It matters because attackers can bypass filters and retrieve all records from the system.
+            </p>
+            <div class="space-y-4">
+              <label class="block text-sm font-bold uppercase tracking-wider text-gray-400">Search users</label>
+              <div class="flex flex-col sm:flex-row gap-3">
+                <input id="sql-input" class="flex-1 rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" placeholder="Enter username or SQL injection" />
+                <button id="sql-submit" class="bg-accent hover:bg-accent-600 text-bg rounded-xl py-3 px-6 font-bold transition-colors duration-500">Submit</button>
+              </div>
+              <div class="rounded-rad bg-white/5 p-5 border border-white/10 text-sm text-gray-300">
+                <p class="mb-3"><strong>SQL Query</strong></p>
+                <pre id="sql-query" class="whitespace-pre-wrap text-white bg-black/10 rounded-rad p-4">SELECT * FROM users WHERE username = '';</pre>
+              </div>
+              <div class="rounded-rad bg-white/5 p-5 border border-white/10 text-sm text-gray-300">
+                <p class="mb-3"><strong>Search results</strong></p>
+                <div id="sql-results" class="space-y-2 text-gray-200">No results yet.</div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="max-w-maxW mx-auto mb-20 md:mb-32">
+          <article class="p-8 rounded-rad bg-gradient-to-br from-white/10 to-white/5 shadow-inner-light ring-1 ring-inset ring-bg">
+            <h2 class="text-3xl font-bold tracking-tight mb-4">XSS (Cross Site Scripting)</h2>
+            <p class="text-gray-400 text-lg mb-6">
+              XSS injects script into a web page so it runs in another user's browser. It matters because it can hijack sessions and manipulate page content without server permission.
+            </p>
+            <div class="space-y-4">
+              <label class="block text-sm font-bold uppercase tracking-wider text-gray-400">Comment</label>
+              <textarea id="xss-input" rows="3" class="w-full rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" placeholder="Type a comment..."></textarea>
+              <button id="xss-post" class="bg-accent hover:bg-accent-600 text-bg rounded-xl py-3 px-6 font-bold transition-colors duration-500">Post Comment</button>
+              <div id="xss-feed" class="rounded-rad bg-white/5 p-5 border border-white/10 text-gray-300 min-h-[6rem]"></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="max-w-maxW mx-auto mb-20 md:mb-32">
+          <article class="p-8 rounded-rad bg-gradient-to-br from-white/10 to-white/5 shadow-inner-light ring-1 ring-inset ring-bg">
+            <h2 class="text-3xl font-bold tracking-tight mb-4">Command Injection</h2>
+            <p class="text-gray-400 text-lg mb-6">
+              Command injection occurs when user input is run by the server shell. It matters because attackers can execute system commands and access sensitive server data.
+            </p>
+            <div class="space-y-4">
+              <label class="block text-sm font-bold uppercase tracking-wider text-gray-400">Ping host</label>
+              <div class="flex flex-col sm:flex-row gap-3">
+                <input id="cmd-input" class="flex-1 rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" placeholder="127.0.0.1; whoami" />
+                <button id="cmd-run" class="bg-accent hover:bg-accent-600 text-bg rounded-xl py-3 px-6 font-bold transition-colors duration-500">Run</button>
+              </div>
+              <pre id="cmd-output" class="rounded-rad bg-black/10 p-5 border border-white/10 text-gray-300 whitespace-pre-wrap min-h-[10rem]"></pre>
+            </div>
+          </article>
+        </section>
+
+        <section class="max-w-maxW mx-auto mb-20 md:mb-32">
+          <article class="p-8 rounded-rad bg-gradient-to-br from-white/10 to-white/5 shadow-inner-light ring-1 ring-inset ring-bg">
+            <h2 class="text-3xl font-bold tracking-tight mb-4">File Upload</h2>
+            <p class="text-gray-400 text-lg mb-6">
+              Unsafe file upload handling lets attackers store executable files on the server. It matters because those files can be accessed and run later as if they were trusted content.
+            </p>
+            <div class="space-y-4">
+              <div class="grid gap-4 md:grid-cols-2">
+                <button id="file-photo" class="bg-bg border border-white/10 hover:border-accent text-white rounded-rad py-3 px-5 transition-colors duration-500">Upload photo.jpg</button>
+                <button id="file-shell" class="bg-bg border border-white/10 hover:border-accent text-white rounded-rad py-3 px-5 transition-colors duration-500">Upload shell.php</button>
+              </div>
+              <div id="file-output" class="rounded-rad bg-white/5 p-5 border border-white/10 text-gray-300 min-h-[8rem]"></div>
+            </div>
+          </article>
+        </section>
+
+        <footer class="max-w-maxW mx-auto py-10 border-t border-white/10 text-center text-sm text-gray-400">
+          <p>Security Lab is a simulated environment for educational purposes only.</p>
+        </footer>
       </div>
     </main>
 
-    <script type="module" src="./main.js"></script>
+    <script>
+      const bfPasswords = ['123456', 'password', 'qwerty', 'letmein', 'admin123'];
+      const bfButton = document.getElementById('bf-start');
+      const bfAttempts = document.getElementById('bf-attempts');
+      const bfCurrent = document.getElementById('bf-current');
+      const bfStatus = document.getElementById('bf-status');
+
+      bfButton.addEventListener('click', () => {
+        bfButton.disabled = true;
+        bfStatus.textContent = 'Attacking...';
+        let count = 0;
+        let index = 0;
+        const username = document.getElementById('bf-username').value || 'admin';
+
+        const step = () => {
+          if (index >= bfPasswords.length) {
+            bfStatus.textContent = 'Attack stopped - password not found';
+            bfButton.disabled = false;
+            return;
+          }
+          count += 1;
+          bfAttempts.textContent = count;
+          const password = bfPasswords[index];
+          bfCurrent.textContent = password;
+          if (password === 'password') {
+            bfStatus.textContent = `Success: ${username} / ${password}`;
+            bfButton.disabled = false;
+          } else {
+            index += 1;
+            setTimeout(step, 600);
+          }
+        };
+
+        setTimeout(step, 400);
+      });
+
+      const users = [
+        { username: 'alice', email: 'alice@example.com' },
+        { username: 'bob', email: 'bob@example.com' },
+        { username: 'carol', email: 'carol@example.com' },
+        { username: 'dave', email: 'dave@example.com' },
+        { username: 'eve', email: 'eve@example.com' }
+      ];
+      const sqlInput = document.getElementById('sql-input');
+      const sqlQuery = document.getElementById('sql-query');
+      const sqlResults = document.getElementById('sql-results');
+
+      document.getElementById('sql-submit').addEventListener('click', () => {
+        const value = sqlInput.value.trim();
+        const escaped = value.replace(/"/g, '\\"');
+        sqlQuery.textContent = `SELECT * FROM users WHERE username = '${escaped}';`;
+        if (value === "1' OR '1'='1") {
+          sqlResults.innerHTML = users.map((user) => `<div class="rounded-rad bg-bg/40 p-3 border border-white/10 text-white"><strong>${user.username}</strong> — ${user.email}</div>`).join('');
+        } else {
+          const found = users.find((user) => user.username === value);
+          sqlResults.innerHTML = found
+            ? `<div class="rounded-rad bg-bg/40 p-3 border border-white/10 text-white"><strong>${found.username}</strong> — ${found.email}</div>`
+            : '<div class="text-gray-400">No rows returned.</div>';
+        }
+      });
+
+      const xssInput = document.getElementById('xss-input');
+      const xssFeed = document.getElementById('xss-feed');
+      document.getElementById('xss-post').addEventListener('click', () => {
+        const value = xssInput.value.trim();
+        if (!value) return;
+        if (value.includes("<script>alert('hacked')<\/script>")) {
+          xssFeed.innerHTML = '<div class="rounded-rad border border-accent bg-[#111827] p-4 text-accent font-bold">Displayed alert: hacked</div>';
+        } else {
+          xssFeed.innerHTML = `<div class="rounded-rad bg-white/5 p-4 text-gray-300">${value}</div>`;
+        }
+        xssInput.value = '';
+      });
+
+      const cmdInput = document.getElementById('cmd-input');
+      const cmdOutput = document.getElementById('cmd-output');
+      document.getElementById('cmd-run').addEventListener('click', () => {
+        const value = cmdInput.value.trim();
+        if (!value) return;
+        const target = value.split(' ')[0] || '127.0.0.1';
+        let output = `Pinging ${target} with 32 bytes of data:\nReply from 127.0.0.1: bytes=32 time<1ms TTL=128\nReply from 127.0.0.1: bytes=32 time<1ms TTL=128\n`;
+        if (value.includes('; whoami')) {
+          output += '\nwww-data\n';
+        }
+        cmdOutput.textContent = output;
+      });
+
+      const fileOutput = document.getElementById('file-output');
+      document.getElementById('file-photo').addEventListener('click', () => {
+        fileOutput.innerHTML = '<div class="rounded-rad bg-[#111827] border border-white/10 p-4 text-gray-300">photo.jpg uploaded successfully.<br>Accessible at <span class="text-accent">/uploads/photo.jpg</span></div>';
+      });
+      document.getElementById('file-shell').addEventListener('click', () => {
+        fileOutput.innerHTML = '<div class="rounded-rad bg-[#111827] border border-white/10 p-4 text-gray-300">shell.php uploaded successfully.<br>Dangerous URL: <span class="text-accent">/uploads/shell.php</span></div>';
+      });
+    </script>
   </body>
 </html>
