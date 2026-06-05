@@ -58,8 +58,9 @@
             <div class="grid gap-4 md:grid-cols-[minmax(0,1fr)_280px]">
               <div class="space-y-4">
                 <label class="block text-sm font-bold uppercase tracking-wider text-gray-400">Username</label>
-                <input id="bf-username" class="w-full rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" value="admin" />
+                <input id="bf-username" placeholder="admin" class="w-full rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" value="admin" />
                 <button id="bf-start" class="bg-accent hover:bg-accent-600 text-bg rounded-xl py-3 px-6 font-bold transition-colors duration-500">Start Attack</button>
+                <p class="text-sm text-gray-400">👆 Click Start Attack to watch the attack run</p>
                 <div class="rounded-rad bg-white/5 p-4 border border-white/10 text-sm text-gray-300">
                   <div><strong>Attempts:</strong> <span id="bf-attempts">0</span></div>
                   <div><strong>Current password:</strong> <span id="bf-current">—</span></div>
@@ -70,10 +71,10 @@
                 <p class="text-gray-300 font-medium mb-3">Password list</p>
                 <ul class="list-disc list-inside text-gray-400 space-y-2">
                   <li>123456</li>
-                  <li>password</li>
                   <li>qwerty</li>
                   <li>letmein</li>
                   <li>admin123</li>
+                  <li>password</li>
                 </ul>
               </div>
             </div>
@@ -89,9 +90,10 @@
             <div class="space-y-4">
               <label class="block text-sm font-bold uppercase tracking-wider text-gray-400">Search users</label>
               <div class="flex flex-col sm:flex-row gap-3">
-                <input id="sql-input" class="flex-1 rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" placeholder="Enter username or SQL injection" />
+                <input id="sql-input" class="flex-1 rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" placeholder="Try: 1' OR '1'='1" />
                 <button id="sql-submit" class="bg-accent hover:bg-accent-600 text-bg rounded-xl py-3 px-6 font-bold transition-colors duration-500">Submit</button>
               </div>
+              <p class="text-sm text-gray-400">👆 Paste the text from the placeholder and click Submit</p>
               <div class="rounded-rad bg-white/5 p-5 border border-white/10 text-sm text-gray-300">
                 <p class="mb-3"><strong>SQL Query</strong></p>
                 <pre id="sql-query" class="whitespace-pre-wrap text-white bg-black/10 rounded-rad p-4">SELECT * FROM users WHERE username = '';</pre>
@@ -112,8 +114,9 @@
             </p>
             <div class="space-y-4">
               <label class="block text-sm font-bold uppercase tracking-wider text-gray-400">Comment</label>
-              <textarea id="xss-input" rows="3" class="w-full rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" placeholder="Type a comment..."></textarea>
+              <textarea id="xss-input" rows="3" class="w-full rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" placeholder="<script>alert('hacked')</script>"></textarea>
               <button id="xss-post" class="bg-accent hover:bg-accent-600 text-bg rounded-xl py-3 px-6 font-bold transition-colors duration-500">Post Comment</button>
+              <p class="text-sm text-gray-400">👆 Paste the text from the placeholder and click Post Comment</p>
               <div id="xss-feed" class="rounded-rad bg-white/5 p-5 border border-white/10 text-gray-300 min-h-[6rem]"></div>
             </div>
           </article>
@@ -131,6 +134,7 @@
                 <input id="cmd-input" class="flex-1 rounded-rad border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent" placeholder="127.0.0.1; whoami" />
                 <button id="cmd-run" class="bg-accent hover:bg-accent-600 text-bg rounded-xl py-3 px-6 font-bold transition-colors duration-500">Run</button>
               </div>
+              <p class="text-sm text-gray-400">👆 Paste the text from the placeholder and click Run</p>
               <pre id="cmd-output" class="rounded-rad bg-black/10 p-5 border border-white/10 text-gray-300 whitespace-pre-wrap min-h-[10rem]"></pre>
             </div>
           </article>
@@ -147,6 +151,7 @@
                 <button id="file-photo" class="bg-bg border border-white/10 hover:border-accent text-white rounded-rad py-3 px-5 transition-colors duration-500">Upload photo.jpg</button>
                 <button id="file-shell" class="bg-bg border border-white/10 hover:border-accent text-white rounded-rad py-3 px-5 transition-colors duration-500">Upload shell.php</button>
               </div>
+              <p class="text-sm text-gray-400">👆 Click Upload shell.php to see what happens</p>
               <div id="file-output" class="rounded-rad bg-white/5 p-5 border border-white/10 text-gray-300 min-h-[8rem]"></div>
             </div>
           </article>
@@ -159,7 +164,7 @@
     </main>
 
     <script>
-      const bfPasswords = ['123456', 'password', 'qwerty', 'letmein', 'admin123'];
+      const bfPasswords = ['123456', 'qwerty', 'letmein', 'admin123', 'password'];
       const bfButton = document.getElementById('bf-start');
       const bfAttempts = document.getElementById('bf-attempts');
       const bfCurrent = document.getElementById('bf-current');
@@ -170,6 +175,7 @@
         bfButton.disabled = true;
         bfStatus.textContent = 'Attacking...';
         bfCurrent.classList.remove('text-green-400');
+        bfCurrent.classList.remove('text-red-400');
         let count = 0;
         let index = 0;
         const username = document.getElementById('bf-username').value || 'admin';
@@ -186,40 +192,40 @@
           bfCurrent.textContent = password;
           if (password === 'password') {
             bfCurrent.classList.add('text-green-400');
-            bfStatus.textContent = 'Password cracked!';
+            bfStatus.textContent = '✅ Password cracked: password';
             bfButton.disabled = false;
             return;
           }
           index += 1;
-          setTimeout(step, 400);
+          setTimeout(step, 500);
         };
 
-        setTimeout(step, 400);
+        step();
       });
 
       const users = [
-        { id: 1, username: 'alice', email: 'alice@example.com' },
-        { id: 2, username: 'bob', email: 'bob@example.com' },
-        { id: 3, username: 'carol', email: 'carol@example.com' },
-        { id: 4, username: 'dave', email: 'dave@example.com' },
-        { id: 5, username: 'eve', email: 'eve@example.com' }
+        { id: 1, username: 'admin', email: 'admin@example.com' },
+        { id: 2, username: 'gordonb', email: 'gordonb@example.com' },
+        { id: 3, username: 'pablo', email: 'pablo@example.com' },
+        { id: 4, username: 'smithy', email: 'smithy@example.com' },
+        { id: 5, username: '1337', email: '1337@example.com' }
       ];
       const sqlInput = document.getElementById('sql-input');
       const sqlQuery = document.getElementById('sql-query');
       const sqlResults = document.getElementById('sql-results');
 
       const renderSqlQuery = (value) => {
-        const escaped = value.replace(/"/g, '\\"');
+        const escaped = value.replace(/"/g, '\\"').replace(/'/g, "\\'");
         sqlQuery.textContent = `SELECT * FROM users WHERE username = '${escaped}';`;
       };
 
-      const renderResults = (rows) => {
+      const renderResults = (rows, errorHtml = '') => {
         if (!rows || rows.length === 0) {
-          sqlResults.innerHTML = '<div class="text-gray-400">No rows returned.</div>';
+          sqlResults.innerHTML = `${errorHtml}<div class="text-gray-400">No rows returned.</div>`;
           return;
         }
         const headers = ['ID', 'Username', 'Email'];
-        sqlResults.innerHTML = `
+        sqlResults.innerHTML = `${errorHtml}
           <table class="w-full text-left border-collapse text-gray-200">
             <thead>
               <tr class="border-b border-white/10 text-gray-400">
@@ -250,55 +256,84 @@
         const value = sqlInput.value.trim();
         renderSqlQuery(value);
 
-        if (value === "1' OR '1'='1") {
-          renderResults(users);
+        const errorHtml = value.includes("'")
+          ? '<div class="rounded-rad border border-yellow-500 bg-yellow-900/70 p-4 text-yellow-200 mb-4">⚠️ Database error: SQL syntax error</div>'
+          : '';
+
+        if (value.includes(" OR ")) {
+          renderResults(users, errorHtml);
           return;
         }
 
         const numericId = Number(value);
-        if (!Number.isNaN(numericId)) {
+        if (!Number.isNaN(numericId) && value !== '') {
           const found = users.filter((user) => user.id === numericId);
-          renderResults(found);
+          renderResults(found, errorHtml);
           return;
         }
 
         const foundByName = users.filter((user) => user.username === value);
-        renderResults(foundByName);
+        renderResults(foundByName, errorHtml);
       });
 
       const xssInput = document.getElementById('xss-input');
       const xssFeed = document.getElementById('xss-feed');
+      const escapeHtml = (value) =>
+        value
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+
       document.getElementById('xss-post').addEventListener('click', () => {
         const value = xssInput.value.trim();
         if (!value) return;
-        const normalized = value.replace(/\s+/g, '');
-        if (normalized === "alert('hacked')" || normalized === "<script>alert('hacked')<\/script>") {
-          xssFeed.innerHTML = '<div class="rounded-rad border border-red-500 bg-red-900/70 p-4 text-red-300 font-bold">Script executed: alert(\'hacked\')</div>';
+        if (value.includes('<script>')) {
+          xssFeed.innerHTML = `
+            <div class="rounded-rad border border-red-500 bg-red-900/70 p-4 text-red-300 space-y-4">
+              <div class="font-bold">⚠️ Script injected! This would execute in every visitor's browser</div>
+              <pre class="rounded-rad bg-black/10 p-4 text-red-300 overflow-x-auto">${escapeHtml(value)}</pre>
+            </div>
+          `;
         } else {
-          xssFeed.innerHTML = `<div class="rounded-rad bg-white/5 p-4 text-gray-300">${value}</div>`;
+          xssFeed.innerHTML = `<div class="rounded-rad bg-white/5 p-4 text-gray-300">${escapeHtml(value)}</div>`;
         }
         xssInput.value = '';
       });
 
       const cmdInput = document.getElementById('cmd-input');
       const cmdOutput = document.getElementById('cmd-output');
+      let cmdInjectionTimeout;
       document.getElementById('cmd-run').addEventListener('click', () => {
+        clearTimeout(cmdInjectionTimeout);
         const value = cmdInput.value.trim();
         if (!value) return;
-        const target = value.split(' ')[0] || '127.0.0.1';
-        let output = `Pinging ${target} with 32 bytes of data:\nReply from 127.0.0.1: bytes=32 time<1ms TTL=128\nReply from 127.0.0.1: bytes=32 time<1ms TTL=128\n`;
-        if (value.includes('; whoami')) {
-          output += '\nwww-data\n';
-        }
+        const target = value.split(/[\s;]+/)[0] || '127.0.0.1';
+        const output = `Pinging ${target} with 32 bytes of data:\nReply from 127.0.0.1: bytes=32 time<1ms TTL=128\nReply from 127.0.0.1: bytes=32 time<1ms TTL=128\n`;
         cmdOutput.textContent = output;
+
+        if (value.includes(';')) {
+          cmdInjectionTimeout = setTimeout(() => {
+            cmdOutput.textContent = `${output}\nwww-data\n\n⚠️ Injected command executed on server`;
+          }, 1000);
+        }
       });
 
       const fileOutput = document.getElementById('file-output');
       document.getElementById('file-photo').addEventListener('click', () => {
-        fileOutput.innerHTML = '<div class="rounded-rad bg-[#111827] border border-white/10 p-4 text-gray-300">photo.jpg uploaded successfully.<br>Accessible at <span class="text-accent">/uploads/photo.jpg</span></div>';
+        fileOutput.innerHTML = '<div class="rounded-rad border border-emerald-500 bg-emerald-900/50 p-4 text-emerald-200">✅ photo.jpg uploaded successfully - safe</div>';
       });
       document.getElementById('file-shell').addEventListener('click', () => {
-        fileOutput.innerHTML = '<div class="rounded-rad border border-red-500 bg-red-900/70 p-4 text-red-300">shell.php uploaded successfully.<br>Created dangerous URL: <span class="text-accent">/uploads/shell.php</span></div>';
+        fileOutput.innerHTML = `
+          <div class="space-y-4">
+            <div class="rounded-rad border border-white/10 bg-white/5 p-4 text-gray-300">✅ shell.php uploaded successfully</div>
+            <div class="rounded-rad border border-red-500 bg-red-900/70 p-4 text-red-300">
+              yoursite.com/uploads/shell.php?cmd=whoami<br>
+              <strong>⚠️ Shell accessible via URL - attacker has full server control</strong>
+            </div>
+          </div>
+        `;
       });
     </script>
   </body>
