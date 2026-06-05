@@ -166,8 +166,10 @@
       const bfStatus = document.getElementById('bf-status');
 
       bfButton.addEventListener('click', () => {
+        if (bfButton.disabled) return;
         bfButton.disabled = true;
         bfStatus.textContent = 'Attacking...';
+        bfCurrent.classList.remove('text-green-400');
         let count = 0;
         let index = 0;
         const username = document.getElementById('bf-username').value || 'admin';
@@ -183,12 +185,13 @@
           const password = bfPasswords[index];
           bfCurrent.textContent = password;
           if (password === 'password') {
-            bfStatus.textContent = `Success: ${username} / ${password}`;
+            bfCurrent.classList.add('text-green-400');
+            bfStatus.textContent = 'Password cracked!';
             bfButton.disabled = false;
-          } else {
-            index += 1;
-            setTimeout(step, 600);
+            return;
           }
+          index += 1;
+          setTimeout(step, 400);
         };
 
         setTimeout(step, 400);
