@@ -271,8 +271,9 @@
       document.getElementById('xss-post').addEventListener('click', () => {
         const value = xssInput.value.trim();
         if (!value) return;
-        if (value.includes("<script>alert('hacked')<\/script>")) {
-          xssFeed.innerHTML = '<div class="rounded-rad border border-accent bg-[#111827] p-4 text-accent font-bold">Displayed alert: hacked</div>';
+        const normalized = value.replace(/\s+/g, '');
+        if (normalized === "alert('hacked')" || normalized === "<script>alert('hacked')<\/script>") {
+          xssFeed.innerHTML = '<div class="rounded-rad border border-red-500 bg-red-900/70 p-4 text-red-300 font-bold">Script executed: alert(\'hacked\')</div>';
         } else {
           xssFeed.innerHTML = `<div class="rounded-rad bg-white/5 p-4 text-gray-300">${value}</div>`;
         }
@@ -297,7 +298,7 @@
         fileOutput.innerHTML = '<div class="rounded-rad bg-[#111827] border border-white/10 p-4 text-gray-300">photo.jpg uploaded successfully.<br>Accessible at <span class="text-accent">/uploads/photo.jpg</span></div>';
       });
       document.getElementById('file-shell').addEventListener('click', () => {
-        fileOutput.innerHTML = '<div class="rounded-rad bg-[#111827] border border-white/10 p-4 text-gray-300">shell.php uploaded successfully.<br>Dangerous URL: <span class="text-accent">/uploads/shell.php</span></div>';
+        fileOutput.innerHTML = '<div class="rounded-rad border border-red-500 bg-red-900/70 p-4 text-red-300">shell.php uploaded successfully.<br>Created dangerous URL: <span class="text-accent">/uploads/shell.php</span></div>';
       });
     </script>
   </body>
