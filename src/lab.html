@@ -166,6 +166,22 @@
           </article>
         </section>
 
+        <section class="max-w-maxW mx-auto mb-20 md:mb-32">
+          <article class="p-8 rounded-rad bg-gradient-to-br from-white/10 to-white/5 shadow-inner-light ring-1 ring-inset ring-bg">
+            <h2 class="text-3xl font-bold tracking-tight mb-4">What I Learned</h2>
+            <p class="text-gray-400 text-lg mb-6">
+              Built in a real Kali Linux home lab using Docker, Nmap, Python and Burp Suite.
+            </p>
+            <ul class="list-disc list-inside space-y-3 text-gray-300">
+              <li>Brute Force: No rate limiting means any password can be cracked automatically. Defence: account lockout + MFA.</li>
+              <li>SQL Injection: Unsanitised input breaks database queries. Defence: parameterised queries only.</li>
+              <li>XSS: User input rendered as HTML gives attackers full browser control. Defence: encode all output.</li>
+              <li>Command Injection: Shell commands built from user input lead to full server compromise. Defence: never pass user input to system calls.</li>
+              <li>File Upload: Accepting any file type lets attackers upload and execute server-side code. Defence: validate file type server-side and rename all uploads.</li>
+            </ul>
+          </article>
+        </section>
+
         <footer class="max-w-maxW mx-auto py-10 border-t border-white/10 text-center text-sm text-gray-400">
           <p>Security Lab is a simulated environment for educational purposes only.</p>
         </footer>
